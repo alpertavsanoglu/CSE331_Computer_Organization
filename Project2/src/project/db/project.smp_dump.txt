@@ -1,0 +1,7 @@
+
+State Machine - |alu32|mod:op8|mod_cu:control_unit|state
+Name state.final_s state.third_s state.secod_s state.first_s 
+state.first_s 0 0 0 0 
+state.secod_s 0 0 1 1 
+state.third_s 0 1 0 1 
+state.final_s 1 0 0 1 

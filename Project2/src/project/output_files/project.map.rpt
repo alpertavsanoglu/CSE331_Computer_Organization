@@ -1,0 +1,559 @@
+Analysis & Synthesis report for project
+Sun Dec 10 23:49:12 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |alu32|mod:op8|mod_cu:control_unit|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "add32:op6"
+ 13. Port Connectivity Checks: "lessthan32:op5|sub32:sub_1|add32:result"
+ 14. Port Connectivity Checks: "lessthan32:op5|sub32:sub_1|add32:compp1"
+ 15. Port Connectivity Checks: "lessthan32:op5|sub32:sub_1"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Dec 10 23:49:12 2023       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; project                                     ;
+; Top-level Entity Name           ; alu32                                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 68                                          ;
+; Total pins                      ; 103                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; alu32              ; project            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                      ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                        ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+; and32.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/and32.v      ;         ;
+; or32.v                           ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/or32.v       ;         ;
+; xor32.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/xor32.v      ;         ;
+; nor32.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/nor32.v      ;         ;
+; lessthan32.v                     ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/lessthan32.v ;         ;
+; half_adder.v                     ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/half_adder.v ;         ;
+; full_adder.v                     ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/full_adder.v ;         ;
+; add32.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/add32.v      ;         ;
+; sub32.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/sub32.v      ;         ;
+; mod.v                            ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/mod.v        ;         ;
+; mod_dp.v                         ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/mod_dp.v     ;         ;
+; mod_cu.v                         ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/mod_cu.v     ;         ;
+; alu32.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/alu32.v      ;         ;
+; mux8x1.v                         ; yes             ; User Verilog HDL File  ; C:/Users/ALPER/Desktop/quartus/project/mux8x1.v     ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 195            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 280            ;
+;     -- 7 input functions                    ; 26             ;
+;     -- 6 input functions                    ; 79             ;
+;     -- 5 input functions                    ; 34             ;
+;     -- 4 input functions                    ; 48             ;
+;     -- <=3 input functions                  ; 93             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 68             ;
+;                                             ;                ;
+; I/O pins                                    ; 103            ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; aluop[2]~input ;
+; Maximum fan-out                             ; 69             ;
+; Total fan-out                               ; 1664           ;
+; Average fan-out                             ; 3.00           ;
++---------------------------------------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                 ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                          ; Entity Name ; Library Name ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------+-------------+--------------+
+; |alu32                         ; 280 (0)             ; 68 (0)                    ; 0                 ; 0          ; 103  ; 0            ; |alu32                                                                       ; alu32       ; work         ;
+;    |add32:op6|                 ; 18 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6                                                             ; add32       ; work         ;
+;       |full_adder:fa10|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa10                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa10|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa12|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa12                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa12|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa14|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa14                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa14|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa15|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa15                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa15|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa17|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa17                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa17|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa19|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa19                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa19|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa21|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa21                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa21|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa22|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa22                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa22|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa24|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa24                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa24|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa25|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa25                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa25|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa27|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa27                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa27|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa28|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa28                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa28|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa29|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa29                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa29|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa2|         ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa2                                              ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa2|half_adder:h2                                ; half_adder  ; work         ;
+;       |full_adder:fa30|        ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa30                                             ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa30|half_adder:h2                               ; half_adder  ; work         ;
+;       |full_adder:fa5|         ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa5                                              ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa5|half_adder:h2                                ; half_adder  ; work         ;
+;       |full_adder:fa7|         ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa7                                              ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa7|half_adder:h2                                ; half_adder  ; work         ;
+;       |full_adder:fa9|         ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa9                                              ; full_adder  ; work         ;
+;          |half_adder:h2|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|add32:op6|full_adder:fa9|half_adder:h2                                ; half_adder  ; work         ;
+;    |lessthan32:op5|            ; 64 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5                                                        ; lessthan32  ; work         ;
+;       |sub32:sub_1|            ; 64 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1                                            ; sub32       ; work         ;
+;          |add32:compp1|        ; 24 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1                               ; add32       ; work         ;
+;             |full_adder:fa0|   ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa0                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa0|half_adder:h2  ; half_adder  ; work         ;
+;             |full_adder:fa11|  ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa11               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa11|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa12|  ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa12               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa12|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa15|  ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa15               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa15|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa16|  ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa16               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa16|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa18|  ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa18               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa18|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa21|  ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa21               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa21|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa22|  ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa22               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa22|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa24|  ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa24               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa24|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa26|  ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa26               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa26|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa27|  ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa27               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa27|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa28|  ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa28               ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa28|half_adder:h2 ; half_adder  ; work         ;
+;             |full_adder:fa2|   ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa2                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa2|half_adder:h2  ; half_adder  ; work         ;
+;             |full_adder:fa3|   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa3                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa3|half_adder:h2  ; half_adder  ; work         ;
+;             |full_adder:fa4|   ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa4                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa4|half_adder:h2  ; half_adder  ; work         ;
+;             |full_adder:fa6|   ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa6                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa6|half_adder:h2  ; half_adder  ; work         ;
+;             |full_adder:fa7|   ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa7                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa7|half_adder:h2  ; half_adder  ; work         ;
+;             |full_adder:fa9|   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa9                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa9|half_adder:h2  ; half_adder  ; work         ;
+;          |add32:result|        ; 40 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:result                               ; add32       ; work         ;
+;             |full_adder:fa1|   ; 40 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:result|full_adder:fa1                ; full_adder  ; work         ;
+;                |half_adder:h2| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|lessthan32:op5|sub32:sub_1|add32:result|full_adder:fa1|half_adder:h2  ; half_adder  ; work         ;
+;    |mod:op8|                   ; 70 (0)              ; 68 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |alu32|mod:op8                                                               ; mod         ; work         ;
+;       |mod_cu:control_unit|    ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mod:op8|mod_cu:control_unit                                           ; mod_cu      ; work         ;
+;       |mod_dp:datapath|        ; 66 (66)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |alu32|mod:op8|mod_dp:datapath                                               ; mod_dp      ; work         ;
+;    |mux8x1:mux0|               ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux0                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux10|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux10                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux11|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux11                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux12|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux12                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux13|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux13                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux14|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux14                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux15|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux15                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux16|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux16                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux17|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux17                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux18|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux18                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux19|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux19                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux1|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux1                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux20|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux20                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux21|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux21                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux22|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux22                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux23|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux23                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux24|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux24                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux25|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux25                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux26|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux26                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux27|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux27                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux28|              ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux28                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux29|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux29                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux2|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux2                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux30|              ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux30                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux31|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux31                                                          ; mux8x1      ; work         ;
+;    |mux8x1:mux3|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux3                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux4|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux4                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux5|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux5                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux6|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux6                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux7|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux7                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux8|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux8                                                           ; mux8x1      ; work         ;
+;    |mux8x1:mux9|               ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|mux8x1:mux9                                                           ; mux8x1      ; work         ;
+;    |xor32:op3|                 ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu32|xor32:op3                                                             ; xor32       ; work         ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |alu32|mod:op8|mod_cu:control_unit|state                      ;
++---------------+---------------+---------------+---------------+---------------+
+; Name          ; state.final_s ; state.third_s ; state.secod_s ; state.first_s ;
++---------------+---------------+---------------+---------------+---------------+
+; state.first_s ; 0             ; 0             ; 0             ; 0             ;
+; state.secod_s ; 0             ; 0             ; 1             ; 1             ;
+; state.third_s ; 0             ; 1             ; 0             ; 1             ;
+; state.final_s ; 1             ; 0             ; 0             ; 1             ;
++---------------+---------------+---------------+---------------+---------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; mod:op8|mod_cu:control_unit|state~6   ; Lost fanout        ;
+; mod:op8|mod_cu:control_unit|state~7   ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 68    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 32    ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |alu32|mod:op8|mod_dp:datapath|TEMP[16] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "add32:op6"                                                                           ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; c_in  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "lessthan32:op5|sub32:sub_1|add32:result"                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; c_in  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "lessthan32:op5|sub32:sub_1|add32:compp1"                                                ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[31..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[0]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; c_in     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "lessthan32:op5|sub32:sub_1"                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; R[30..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 68                          ;
+;     CLR               ; 4                           ;
+;     ENA               ; 32                          ;
+;     ENA SLD           ; 32                          ;
+; arriav_lcell_comb     ; 280                         ;
+;     extend            ; 26                          ;
+;         7 data inputs ; 26                          ;
+;     normal            ; 222                         ;
+;         2 data inputs ; 36                          ;
+;         3 data inputs ; 25                          ;
+;         4 data inputs ; 48                          ;
+;         5 data inputs ; 34                          ;
+;         6 data inputs ; 79                          ;
+;     shared            ; 32                          ;
+;         2 data inputs ; 32                          ;
+; boundary_port         ; 103                         ;
+;                       ;                             ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 5.23                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sun Dec 10 23:49:04 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off project -c project
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file and32.v
+    Info (12023): Found entity 1: and32 File: C:/Users/ALPER/Desktop/quartus/project/and32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file or32.v
+    Info (12023): Found entity 1: or32 File: C:/Users/ALPER/Desktop/quartus/project/or32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file xor32.v
+    Info (12023): Found entity 1: xor32 File: C:/Users/ALPER/Desktop/quartus/project/xor32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file nor32.v
+    Info (12023): Found entity 1: nor32 File: C:/Users/ALPER/Desktop/quartus/project/nor32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file lessthan32.v
+    Info (12023): Found entity 1: lessthan32 File: C:/Users/ALPER/Desktop/quartus/project/lessthan32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file half_adder.v
+    Info (12023): Found entity 1: half_adder File: C:/Users/ALPER/Desktop/quartus/project/half_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file full_adder.v
+    Info (12023): Found entity 1: full_adder File: C:/Users/ALPER/Desktop/quartus/project/full_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add32.v
+    Info (12023): Found entity 1: add32 File: C:/Users/ALPER/Desktop/quartus/project/add32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sub32.v
+    Info (12023): Found entity 1: sub32 File: C:/Users/ALPER/Desktop/quartus/project/sub32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mod.v
+    Info (12023): Found entity 1: mod File: C:/Users/ALPER/Desktop/quartus/project/mod.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mod_dp.v
+    Info (12023): Found entity 1: mod_dp File: C:/Users/ALPER/Desktop/quartus/project/mod_dp.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mod_cu.v
+    Info (12023): Found entity 1: mod_cu File: C:/Users/ALPER/Desktop/quartus/project/mod_cu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu32.v
+    Info (12023): Found entity 1: alu32 File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux8x1.v
+    Info (12023): Found entity 1: mux8x1 File: C:/Users/ALPER/Desktop/quartus/project/mux8x1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file and32_testbench.v
+    Info (12023): Found entity 1: and32_testbench File: C:/Users/ALPER/Desktop/quartus/project/and32_testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file or32_testbench.v
+    Info (12023): Found entity 1: or32_testbench File: C:/Users/ALPER/Desktop/quartus/project/or32_testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file xor32_testbench.v
+    Info (12023): Found entity 1: xor32_testbench File: C:/Users/ALPER/Desktop/quartus/project/xor32_testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file nor32_testbench.v
+    Info (12023): Found entity 1: nor32_testbench File: C:/Users/ALPER/Desktop/quartus/project/nor32_testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file lessthan32_testbench.v
+    Info (12023): Found entity 1: lessthan32_testbench File: C:/Users/ALPER/Desktop/quartus/project/lessthan32_testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file sub32_testbench.v
+    Info (12023): Found entity 1: sub32_testbench File: C:/Users/ALPER/Desktop/quartus/project/sub32_testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file my_mod_alu_testbench.v
+    Info (12023): Found entity 1: my_mod_alu_testbench File: C:/Users/ALPER/Desktop/quartus/project/my_mod_alu_testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file and32_alu_testbench.v
+    Info (12023): Found entity 1: and32_alu_testbench File: C:/Users/ALPER/Desktop/quartus/project/and32_alu_testbench.v Line: 2
+Info (12127): Elaborating entity "alu32" for the top level hierarchy
+Info (12128): Elaborating entity "and32" for hierarchy "and32:op1" File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 16
+Info (12128): Elaborating entity "or32" for hierarchy "or32:op2" File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 17
+Info (12128): Elaborating entity "xor32" for hierarchy "xor32:op3" File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 18
+Info (12128): Elaborating entity "nor32" for hierarchy "nor32:op4" File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 19
+Info (12128): Elaborating entity "lessthan32" for hierarchy "lessthan32:op5" File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 20
+Warning (10034): Output port "out[31..1]" at lessthan32.v(4) has no driver File: C:/Users/ALPER/Desktop/quartus/project/lessthan32.v Line: 4
+Info (12128): Elaborating entity "sub32" for hierarchy "lessthan32:op5|sub32:sub_1" File: C:/Users/ALPER/Desktop/quartus/project/lessthan32.v Line: 10
+Info (12128): Elaborating entity "add32" for hierarchy "lessthan32:op5|sub32:sub_1|add32:compp1" File: C:/Users/ALPER/Desktop/quartus/project/sub32.v Line: 47
+Info (12128): Elaborating entity "full_adder" for hierarchy "lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa31" File: C:/Users/ALPER/Desktop/quartus/project/add32.v Line: 10
+Info (12128): Elaborating entity "half_adder" for hierarchy "lessthan32:op5|sub32:sub_1|add32:compp1|full_adder:fa31|half_adder:h1" File: C:/Users/ALPER/Desktop/quartus/project/full_adder.v Line: 7
+Info (12128): Elaborating entity "mod" for hierarchy "mod:op8" File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 23
+Info (12128): Elaborating entity "mod_cu" for hierarchy "mod:op8|mod_cu:control_unit" File: C:/Users/ALPER/Desktop/quartus/project/mod.v Line: 14
+Info (12128): Elaborating entity "mod_dp" for hierarchy "mod:op8|mod_dp:datapath" File: C:/Users/ALPER/Desktop/quartus/project/mod.v Line: 17
+Info (12128): Elaborating entity "mux8x1" for hierarchy "mux8x1:mux31" File: C:/Users/ALPER/Desktop/quartus/project/alu32.v Line: 26
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 415 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 70 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 312 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4851 megabytes
+    Info: Processing ended: Sun Dec 10 23:49:12 2023
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
+
+
